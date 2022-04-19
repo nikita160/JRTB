@@ -10,12 +10,6 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 
-
-
-
-/**
- * Telegrambot for Javarush Community from Javarush community.
- */
 @Component
 public class JavaRushTelegramBot extends TelegramLongPollingBot {
 
@@ -30,6 +24,7 @@ public class JavaRushTelegramBot extends TelegramLongPollingBot {
         if(update.hasMessage() && update.getMessage().hasText()) {
             String message = update.getMessage().getText().trim();
             String chatId = update.getMessage().getChatId().toString();
+            String from = update.getMessage().getFrom().getFirstName().toString();
 
             SendMessage sm = new SendMessage();
             sm.setChatId(chatId);
@@ -47,11 +42,11 @@ public class JavaRushTelegramBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return null;
+        return username;
     }
 
     @Override
     public String getBotToken() {
-        return null;
+        return token;
     }
 }
