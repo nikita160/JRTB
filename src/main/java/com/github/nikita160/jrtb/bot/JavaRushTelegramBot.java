@@ -5,14 +5,13 @@ package com.github.nikita160.jrtb.bot;
 import com.github.nikita160.jrtb.command.CommandContainer;
 import com.github.nikita160.jrtb.command.CommandName;
 import com.github.nikita160.jrtb.command.NoCommand;
-import com.github.nikita160.jrtb.service.SendBotMessageImpl;
-import com.github.nikita160.jrtb.service.SendBotMessageService;
+
+import com.github.nikita160.jrtb.service.SendBotMessageServiceImpl;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 
 @Component
@@ -29,7 +28,8 @@ public class JavaRushTelegramBot extends TelegramLongPollingBot {
     private final CommandContainer commandContainer;
 
     public JavaRushTelegramBot(){
-        this.commandContainer = new CommandContainer(new SendBotMessageImpl(this));
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+
     }
 
     @Override
