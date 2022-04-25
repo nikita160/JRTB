@@ -6,7 +6,7 @@ import com.github.nikita160.jrtb.command.CommandContainer;
 import com.github.nikita160.jrtb.command.CommandName;
 import com.github.nikita160.jrtb.command.NoCommand;
 
-import com.github.nikita160.jrtb.service.SendBotMessageService;
+import com.github.nikita160.jrtb.service.SendBotMessageServiceImpl;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
