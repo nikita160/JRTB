@@ -3,3 +3,6 @@
 # 0.1.0
 * added Spring sceleton project
 * added echo telegram bot
+
+# 0.3.0
+* added Docker W
