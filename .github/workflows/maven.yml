@@ -9,31 +9,20 @@ on:
   pull_request:
     branches: [ main ]
 
+services:
+  postgres:
+    image: postgis/postgis:10-2.5
+    env:
+      # must specify password for PG Docker container image, see: https://registry.hub.docker.com/_/postgres?tab=description&page=1&name=10
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dev_jrtb_db
+    ports:
+      - 5432:5432
+    # needed because the postgres container does not provide a healthcheck
+    options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
 jobs:
-  runner-job:
-    # You must use a Linux environment when using service containers or container jobs
-    runs-on: ubuntu-latest
-
-    # Service containers to run with `runner-job`
-    services:
-      # Label used to access the service container
-      postgres:
-        # Docker Hub image
-        image: postgres
-        # Provide the password for postgres
-        env:
-          POSTGRES_PASSWORD: postgres
-        # Set health checks to wait until postgres has started
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          # Maps tcp port 5432 on service container to the host
-          - 5432:5432
   build:
-
     runs-on: ubuntu-latest
 
     steps:
