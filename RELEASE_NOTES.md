@@ -5,4 +5,8 @@
 * added echo telegram bot
 
 # 0.3.0
-* added Docker W
+* added Docker 
+
+## 0.4.0-SNAPSHOT
+
+* added repository layer.
