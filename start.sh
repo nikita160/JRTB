@@ -13,6 +13,8 @@ docker-compose stop
 # Add environment variables
 export BOT_NAME=test_nikita160_bot
 export BOT_TOKEN=5343306449:AAHqbeHgmxvGVjcS3g5-ApVRfS-PXxe4NgU
+export BOT_DB_USERNAME='postgres'
+export BOT_DB_PASSWORD='postgres'
 
 # Start new deployment
 docker-compose up --build -d

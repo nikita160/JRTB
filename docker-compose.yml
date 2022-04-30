@@ -2,9 +2,23 @@ version: '3.7'
 
 services:
   jrtb:
+    depends_on:
+      - jrtb-db
     build:
       context: .
     environment:
       - BOT_NAME=${BOT_NAME}
       - BOT_TOKEN=${BOT_TOKEN}
     restart: always
+
+
+  db:
+    image: postgres
+    restart: always
+    container_name: jrtb-db
+    environment:
+      POSTGRES_USER: ${BOT_DB_USERNAME}
+      POSTGRES_PASSWORD: ${BOT_DB_PASSWORD}
+      POSTGRES_DB: jrtb_db
+    ports:
+      - 8080:5432
