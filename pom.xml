@@ -15,6 +15,7 @@
 	<description>My first telegram Bot</description>
 	<properties>
 		<java.version>11</java.version>
+		<unirest.version>3.11.01</unirest.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -63,6 +64,12 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.24</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.konghq</groupId>
+			<artifactId>unirest-java</artifactId>
+			<version>${unirest.version}</version>
 		</dependency>
 
 
